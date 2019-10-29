@@ -7,7 +7,7 @@ function Smurfs(props) {
      props.getSmurfs();
   },[])
   return (
-    <div>
+    <div style={{display:'flex', flexWrap:'wrap', justifyContent:"center", marginTop: "75px"}}>
       { props.isLoading ?
         (<h1>Loading..</h1>): 
         (props.smurfs.map( (smurf, index) => {
