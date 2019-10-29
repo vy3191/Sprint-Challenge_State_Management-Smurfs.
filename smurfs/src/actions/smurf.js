@@ -61,10 +61,11 @@ export function deleteSmurfs(id) {
   }
 }
 
-export function updateSmurfs(newSmurf,id) {
+export function updateSmurfs(smurf) {
+   console.log('Line 65', smurf)
   return (dispatch) => {
      dispatch({type: UPDATE_SMURFS_START});
-     axios.put(`http://localhost:8000/smurfs/${id}`, newSmurf)
+     axios.put(`http://localhost:8000/smurfs/${smurf.id}`, smurf)
           .then(res => {
              console.log(res.data)
              dispatch({type:UPDATE_SMURFS_SUCCESS, payload: res.data})

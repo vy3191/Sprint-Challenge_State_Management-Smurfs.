@@ -16,11 +16,11 @@ function Form(props) {
   
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input type='text' name="name" onChange={handleChange} value={smurf.name} placeholder="name" />
-        <input type='text' name="age" onChange={handleChange} value={smurf.age} placeholder="age" />
-        <input type='text' name="height" onChange={handleChange} value={smurf.height} placeholder="height" />
-        <button type="submit">Add Smurf</button>
+      <form onSubmit={handleSubmit} class="smurf-form">
+        <input type='text' name="name" className="smurf-input" onChange={handleChange} value={smurf.name} placeholder="name" />
+        <input type='text' name="age" className="smurf-input" onChange={handleChange} value={smurf.age} placeholder="age" />
+        <input type='text' name="height" className="smurf-input" onChange={handleChange} value={smurf.height} placeholder="height" />
+        <button type="submit" className="smurf-input">Add Smurf</button>
       </form>
     </div>
   )
