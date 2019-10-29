@@ -24,7 +24,7 @@ export function reducer(state=initialState,action) {
       return {
         ...state,
         isLoading:false,
-        smurfs: action.payload
+        smurfs: [...action.payload]
       } 
    case GET_SMURFS_ERROR:
      return {

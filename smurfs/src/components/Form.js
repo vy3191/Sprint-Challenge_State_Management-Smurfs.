@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
+import { postSmurfs} from '../actions/smurf';
+import { connect } from 'react-redux';
 
-function Form() {
+function Form(props) {
   const defaultSmurf = {name:"", age:"", height:""}
   const [smurf,setSmurf] = useState(defaultSmurf);
   const handleChange = (event) => {
@@ -8,7 +10,10 @@ function Form() {
   }
   const handleSubmit = e => {
      e.preventDefault();
+     props.postSmurfs(smurf);
+     setSmurf(defaultSmurf);
   }
+  
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -21,4 +26,8 @@ function Form() {
   )
 }
 
-export default Form;
+const mapDispatchToProps = {
+    postSmurfs
+}
+
+export default connect(null, mapDispatchToProps)(Form);
