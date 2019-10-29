@@ -1,11 +1,14 @@
 import React from 'react'
+import {connect} from 'react-redux';
+import {deleteSmurfs, updateSmurfs} from '../actions/smurf';
 
-function Smurf({smurf:{name,age,height}}) {
+function Smurf(props) {
+  const {name,age,height, id} = props.smurf;
   return (
     <div className="smurf">
       <div className="smurf-modify">        
         <button>Update</button>
-        <button>Delete</button>
+        <button onClick={() => props.deleteSmurfs(id)}>Delete</button>
       </div>
       <div>     
         <h2 style={{textAlign:'cener'}}>Name: {name}</h2>
@@ -16,4 +19,8 @@ function Smurf({smurf:{name,age,height}}) {
   )
 }
 
-export default Smurf
+const mapDispatchToProps = {
+   deleteSmurfs, updateSmurfs
+}
+export default connect(null, mapDispatchToProps)(Smurf);
+

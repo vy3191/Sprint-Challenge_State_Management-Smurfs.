@@ -4,10 +4,16 @@ import {
    GET_SMURFS_ERROR,
    POST_SMURFS_START,
    POST_SMURFS_SUCCESS,
-   POST_SMURFS_ERROR
+   POST_SMURFS_ERROR,
+   DELETE_SMURFS_START,
+   DELETE_SMURFS_SUCCESS,
+   DELETE_SMURFS_ERROR,
+   UPDATE_SMURFS_START,
+   UPDATE_SMURFS_SUCCESS,
+   UPDATE_SMURFS_ERROR
 } from '../actions/smurf';
 
-const initialState = {
+export const initialState = {
    isLoading: false,
    smurfs: [],
    error: null
@@ -48,7 +54,41 @@ export function reducer(state=initialState,action) {
        ...state,
        isLoading:false,
        error:action.payload
-     }    
+     }  
+     case DELETE_SMURFS_START:
+     return {
+      ...state,
+      isLoading:true
+     }
+   case DELETE_SMURFS_SUCCESS:
+     return {
+       ...state,
+       isLoading:false,
+       smurfs: action.payload
+     }   
+   case DELETE_SMURFS_ERROR:
+     return {
+       ...state,
+       isLoading:false,
+       error:action.payload
+     }  
+     case UPDATE_SMURFS_START:
+     return {
+      ...state,
+      isLoading:true
+     }
+   case UPDATE_SMURFS_SUCCESS:
+     return {
+       ...state,
+       isLoading:false,
+       smurfs: action.payload
+     }   
+   case UPDATE_SMURFS_ERROR:
+     return {
+       ...state,
+       isLoading:false,
+       error:action.payload
+     }          
     default:
      return state
    }
